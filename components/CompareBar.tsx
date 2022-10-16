@@ -13,9 +13,9 @@ const CompareBar = ({input}: Props) => {
                 <span>{input.barLabel}</span>
                 <span className="text-sm">{formatPercent(input.right.percentage)}</span>
             </div>
-            <div className="w-100 h-[12px] flex">
-                <div className={`bg-blue-500`} style={{flexGrow: input.left.total.toFixed(0)}}></div>
-                <div className={`bg-red-500`} style={{flexGrow: input.right.total.toFixed(0)}}></div>
+            <div className="w-full h-[12px] flex">
+                <div className={`bg-blue-500`} style={{width: 100 * input.left.percentage + "%"}}></div>
+                <div className={`bg-red-500`} style={{width: 100 * input.right.percentage + "%"}}></div>
             </div>
             <div className="w-100 flex justify-between lowercase">
                 <span className="text-xs">{input.left.label}</span>
