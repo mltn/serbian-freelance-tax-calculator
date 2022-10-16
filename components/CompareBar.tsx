@@ -6,7 +6,6 @@ type Props = {
 }
 
 const CompareBar = ({input}: Props) => {
-    console.log(input.left.total.toFixed(0), input.right.total.toFixed(0))
     return (
         <div className="mb-2">
             <div className="w-100 flex justify-between">

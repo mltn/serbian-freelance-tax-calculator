@@ -2,7 +2,6 @@ import {
   OptionNumber,
   TaxCalculationOutput,
 } from "../interfaces/taxAndContribution";
-import CalculatorDetailsRow from "./CalculatorDetailsRow";
 import { freelanceTaxConstants as ftc } from "../utils/taxAndContributions";
 import { formatNumber, formatPercent } from "../utils/format";
 
@@ -15,22 +14,24 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
   const option = optionNumber === 1 ? ftc.opcija1 : ftc.opcija2;
   return (
     <div className="text-sm">
-      <CalculatorDetailsRow>
+      <div className="flex flex-wrap justify-between">
         <label>Besteretni iznos:&nbsp;</label>
         <span className="">{formatNumber(option.besteretniIznos)}</span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label>Normirani trosak:&nbsp;</label>
         <span>
           {formatNumber(data.normiraniTrosakUkupno)} (
           {formatPercent(option.normiraniTrosak)})
         </span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label className="font-bold">Osnovica:&nbsp;</label>
-        <span className="font-bold mb-2">{formatNumber(data.osnovica)}</span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+        <span className="font-bold mb-2">
+          {formatNumber(data.osnovica, true)}
+        </span>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label>PIO:&nbsp;</label>
         <span>
           {formatNumber(data.pioUkupno)}{" "}
@@ -42,8 +43,8 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
             osnovice)
           </span>
         </span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label>Zdravstveno:&nbsp;</label>
         <span>
           {formatNumber(data.zdravstvenoUkupno)}{" "}
@@ -56,8 +57,8 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
             osnovice)
           </span>
         </span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label>Porez:&nbsp;</label>
         <span>
           {formatNumber(data.porez)}{" "}
@@ -65,30 +66,27 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
             ({formatPercent(option.poreskaStopa)} osnovice)
           </span>
         </span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label className="font-bold">Porez i doprinosi:&nbsp;</label>
         <span className="font-bold">
           {formatNumber(data.poreziDoprinosiUkupno, true)}
         </span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label className="font-bold">%:&nbsp;</label>
         <span className="font-bold mb-2">
           {formatPercent(data.poreziDoprinosiProcenat)}
         </span>
-      </CalculatorDetailsRow>
-
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label className="font-bold">Neto:&nbsp;</label>
         <span className="font-bold">{formatNumber(data.neto, true)}</span>
-      </CalculatorDetailsRow>
-      <CalculatorDetailsRow>
+      </div>
+      <div className="flex flex-wrap justify-between">
         <label className="font-bold">%:</label>
-        <span className="font-bold">
-          {formatPercent(data.netoProcenat)}
-        </span>
-      </CalculatorDetailsRow>
+        <span className="font-bold">{formatPercent(data.netoProcenat)}</span>
+      </div>
     </div>
   );
 };
