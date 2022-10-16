@@ -9,7 +9,7 @@ import {
 export const freelanceTaxConstants: TaxationConstants = {
   opcija1: {
     normiraniTrosak: 0.34,
-    besteretniIznos: 21712,
+    besteretniIznos: 19300,
     poreskaStopa: 0.1,
   },
   opcija2: {
@@ -18,7 +18,7 @@ export const freelanceTaxConstants: TaxationConstants = {
     poreskaStopa: 0.2,
   },
   pio: {
-    naTeretPoslodavca: 0.1,
+    naTeretPoslodavca: 0.11,
     naTeretZaposlenog: 0.14,
   },
   zdravstveno: {

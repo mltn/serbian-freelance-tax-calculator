@@ -19,7 +19,7 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
         <span className="">{formatNumber(option.besteretniIznos)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
-        <label>Normirani trosak:&nbsp;</label>
+        <label>Normirani trošak:&nbsp;</label>
         <span>
           {formatNumber(data.normiraniTrosakUkupno)} (
           {formatPercent(option.normiraniTrosak)})
