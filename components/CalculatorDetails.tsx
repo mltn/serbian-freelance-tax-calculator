@@ -34,37 +34,19 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
       <div className="flex flex-wrap justify-between">
         <label>PIO:&nbsp;</label>
         <span>
-          {formatNumber(data.pioUkupno)}{" "}
-          <span className="text-xs">
-            (
-            {formatPercent(
-              ftc.pio.naTeretPoslodavca + ftc.pio.naTeretZaposlenog
-            )}{" "}
-            osnovice)
-          </span>
+          {formatNumber(data.pioUkupno)}
         </span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label>Zdravstveno:&nbsp;</label>
         <span>
-          {formatNumber(data.zdravstvenoUkupno)}{" "}
-          <span className="text-xs">
-            (
-            {formatPercent(
-              ftc.zdravstveno.naTeretPoslodavca +
-                ftc.zdravstveno.naTeretZaposlenog
-            )}{" "}
-            osnovice)
-          </span>
+          {formatNumber(data.zdravstvenoUkupno)}
         </span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label>Porez:&nbsp;</label>
         <span>
-          {formatNumber(data.porez)}{" "}
-          <span className="text-xs">
-            ({formatPercent(option.poreskaStopa)} osnovice)
-          </span>
+          {formatNumber(data.porez)}
         </span>
       </div>
       <div className="flex flex-wrap justify-between">
