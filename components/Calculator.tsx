@@ -1,19 +1,31 @@
-import { freelanceTaxCalc } from "../utils/taxAndContributions";
+import { OptionNumber } from "../interfaces/taxAndContribution";
+import {
+  freelanceTaxCalc,
+  freelanceTaxConstants as ftc,
+} from "../utils/taxAndContributions";
+import CalculatorDetails from "./CalculatorDetails";
+import TaxCalculationCompareBar from "./TaxCalculationCompareBar";
 
 type Props = {
   input: number;
+  optionNumber: OptionNumber;
 };
 
-const Calculator = ({ input }: Props) => {
-  const output1 = freelanceTaxCalc({ priliv: input, brojOpcije: 1 });
-  const output2 = freelanceTaxCalc({ priliv: input, brojOpcije: 2 });
-  return <div className="">
-    <label>Opcija 1:</label>
-    <pre className="max-w-[300px]">{JSON.stringify(output1, null, 2)}</pre>
-
-    <label>Opcija 2:</label>
-    <pre className="max-w-[300px]">{JSON.stringify(output2, null, 2)}</pre>
-    </div>;
+const Calculator = ({ input, optionNumber }: Props) => {
+  if (isNaN(input) || input <= 0) {
+    return <></>;
+  }
+  const output = freelanceTaxCalc({ priliv: input, brojOpcije: optionNumber });
+  return (
+    <div className="p-4 m-4 rounded-md max-w-[900px] bg-gray-100">
+      <TaxCalculationCompareBar
+        taxCalculationOutput={output}
+        optionNumber={optionNumber}
+      />
+      {/* <pre className="">{JSON.stringify(output, null, 2)}</pre> */}
+      <CalculatorDetails data={output} optionNumber={optionNumber} />
+    </div>
+  );
 };
 
 export default Calculator;

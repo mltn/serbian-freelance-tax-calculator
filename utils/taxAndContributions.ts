@@ -1,4 +1,3 @@
-import { ftruncate } from "fs";
 import {
   OptionNumber,
   ContributionBreakdown,
@@ -49,8 +48,8 @@ const getHealthContributionBreakdown = (
 ): ContributionBreakdown => {
   let osnovicaZaDoprinos = Math.min(osnovica, ftc.maxDoprinosi);
   return {
-    naTeretPoslodavca: osnovicaZaDoprinos * ftc.pio.naTeretPoslodavca,
-    naTeretZaposlenog: osnovicaZaDoprinos * ftc.pio.naTeretZaposlenog,
+    naTeretPoslodavca: osnovicaZaDoprinos * ftc.zdravstveno.naTeretPoslodavca,
+    naTeretZaposlenog: osnovicaZaDoprinos * ftc.zdravstveno.naTeretZaposlenog,
   };
 };
 
@@ -70,9 +69,9 @@ export const freelanceTaxCalc = ({
     zdravstveno.naTeretPoslodavca + zdravstveno.naTeretZaposlenog;
   const porez = osnovica * izabranaOpcija.poreskaStopa;
   const poreziDoprinosiUkupno = porez + zdravstvenoUkupno + pioUkupno;
-  const poreziDoprinosiProcenat = (100 * poreziDoprinosiUkupno) / priliv;
+  const poreziDoprinosiProcenat = poreziDoprinosiUkupno / priliv;
   const neto = priliv - poreziDoprinosiUkupno;
-  const netoProcenat = (100 * neto) / priliv;
+  const netoProcenat = neto / priliv;
   const output: TaxCalculationOutput = {
     priliv,
     normiraniTrosakUkupno,
