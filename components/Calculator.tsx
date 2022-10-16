@@ -17,12 +17,11 @@ const Calculator = ({ input, optionNumber }: Props) => {
   }
   const output = freelanceTaxCalc({ priliv: input, brojOpcije: optionNumber });
   return (
-    <div className="p-4 m-4 rounded-md max-w-[900px] bg-gray-100">
+    <div className="p-4 m-2 rounded-md max-w-[900px] bg-gray-100">
       <TaxCalculationCompareBar
         taxCalculationOutput={output}
         optionNumber={optionNumber}
       />
-      {/* <pre className="">{JSON.stringify(output, null, 2)}</pre> */}
       <CalculatorDetails data={output} optionNumber={optionNumber} />
     </div>
   );
