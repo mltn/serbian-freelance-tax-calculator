@@ -19,55 +19,46 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
         <span className="">{formatNumber(option.besteretniIznos)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
-        <label>Normirani trošak:&nbsp;</label>
-        <span>
-          {formatNumber(data.normiraniTrosakUkupno)} (
-          {formatPercent(option.normiraniTrosak)})
-        </span>
+        <label>
+          Normirani trošak ({formatPercent(option.normiraniTrosak)}):&nbsp;
+        </label>
+        <span>{formatNumber(data.normiraniTrosakUkupno)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label className="font-bold">Osnovica:&nbsp;</label>
-        <span className="font-bold mb-2">
-          {formatNumber(data.osnovica, true)}
-        </span>
+        <span className="font-bold mb-2">{formatNumber(data.osnovica)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label>PIO:&nbsp;</label>
-        <span>
-          {formatNumber(data.pioUkupno)}
-        </span>
+        <span>{formatNumber(data.pioUkupno)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label>Zdravstveno:&nbsp;</label>
-        <span>
-          {formatNumber(data.zdravstvenoUkupno)}
-        </span>
+        <span>{formatNumber(data.zdravstvenoUkupno)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label>Porez:&nbsp;</label>
-        <span>
-          {formatNumber(data.porez)}
-        </span>
+        <span>{formatNumber(data.porez)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label className="font-bold">Porez i doprinosi:&nbsp;</label>
         <span className="font-bold">
-          {formatNumber(data.poreziDoprinosiUkupno, true)}
+          {formatNumber(data.poreziDoprinosiUkupno)}
         </span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label className="font-bold">%:&nbsp;</label>
         <span className="font-bold mb-2">
-          {formatPercent(data.poreziDoprinosiProcenat)}
+          {formatPercent(data.poreziDoprinosiProcenat, 2)}
         </span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label className="font-bold">Neto:&nbsp;</label>
-        <span className="font-bold">{formatNumber(data.neto, true)}</span>
+        <span className="font-bold">{formatNumber(data.neto)}</span>
       </div>
       <div className="flex flex-wrap justify-between">
         <label className="font-bold">%:</label>
-        <span className="font-bold">{formatPercent(data.netoProcenat)}</span>
+        <span className="font-bold">{formatPercent(data.netoProcenat, 2)}</span>
       </div>
     </div>
   );
