@@ -8,7 +8,7 @@ const EmbedPage = () => {
   return (
     <Layout title="Predlog Ministarsta finansija za oporezivanja fizičkih lica koja rade preko interneta">
       <h1 className="bg-gray-100 p-4 mb-4 font-bold">
-        Predlog Ministarsta finansija
+        Predlog Ministarstva finansija
         za oporezivanje fizičkih lica
         koja rade preko interneta
       </h1>

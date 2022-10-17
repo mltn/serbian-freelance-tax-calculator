@@ -46,7 +46,7 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
           {formatNumber(data.poreziDoprinosiUkupno)}
         </span>
       </div>
-      <div className="flex flex-wrap justify-between">
+      <div className="flex flex-wrap justify-between text-xs">
         <label className="font-bold">%:&nbsp;</label>
         <span className="font-bold mb-2">
           {formatPercent(data.poreziDoprinosiProcenat, 2)}
@@ -56,7 +56,7 @@ const CalculatorDetails = ({ data, optionNumber }: Props) => {
         <label className="font-bold">Neto:&nbsp;</label>
         <span className="font-bold">{formatNumber(data.neto)}</span>
       </div>
-      <div className="flex flex-wrap justify-between">
+      <div className="flex flex-wrap justify-between text-xs">
         <label className="font-bold">%:</label>
         <span className="font-bold">{formatPercent(data.netoProcenat, 2)}</span>
       </div>
