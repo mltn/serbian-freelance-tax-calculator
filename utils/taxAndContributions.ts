@@ -4,6 +4,7 @@ import {
   TaxationConstants,
   TaxCalculationInput,
   TaxCalculationOutput,
+  TaxationOption,
 } from "../interfaces/taxAndContribution";
 
 export const freelanceTaxConstants: TaxationConstants = {
@@ -11,11 +12,13 @@ export const freelanceTaxConstants: TaxationConstants = {
     normiraniTrosak: 0,
     besteretniIznos: 32000,
     poreskaStopa: 0.2,
+    koristiSeMinDoprinosiZaPio: false,
   },
   opcija2: {
     normiraniTrosak: 0.34,
     besteretniIznos: 19300,
     poreskaStopa: 0.1,
+    koristiSeMinDoprinosiZaPio: true,
   },
   pio: {
     naTeretPoslodavca: 0.11,
@@ -32,10 +35,10 @@ const ftc = freelanceTaxConstants;
 
 const getPensionContributionBreakdown = (
   osnovica: number,
-  brojOpcije: OptionNumber
+  opcija: TaxationOption
 ): ContributionBreakdown => {
   let osnovicaZaDoprinos = Math.min(osnovica, ftc.maxDoprinosi);
-  if (brojOpcije === 1) {
+  if (opcija.koristiSeMinDoprinosiZaPio) {
     osnovicaZaDoprinos = Math.max(osnovicaZaDoprinos, ftc.minDoprinosi);
   }
   return {
@@ -62,7 +65,7 @@ export const freelanceTaxCalc = ({
   const normiraniTrosakUkupno = priliv * izabranaOpcija.normiraniTrosak;
   const besteretni = izabranaOpcija.besteretniIznos;
   const osnovica = Math.max(0, priliv - besteretni - normiraniTrosakUkupno);
-  const pio = getPensionContributionBreakdown(osnovica, brojOpcije);
+  const pio = getPensionContributionBreakdown(osnovica, izabranaOpcija);
   const pioUkupno = pio.naTeretPoslodavca + pio.naTeretZaposlenog;
   const zdravstveno = getHealthContributionBreakdown(osnovica);
   const zdravstvenoUkupno =

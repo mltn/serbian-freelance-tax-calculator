@@ -2,6 +2,7 @@ export type TaxationOption = {
     normiraniTrosak: number
     besteretniIznos: number
     poreskaStopa: number
+    koristiSeMinDoprinosiZaPio: boolean
 }
 
 export type ContributionBreakdown = {
