@@ -29,6 +29,7 @@ export const freelanceTaxConstants: TaxationConstants = {
   },
   maxDoprinosi: 441140,
   minDoprinosi: 30880,
+  osnovicaPoClanu35bZdso: 13613.29,
 };
 const ftc = freelanceTaxConstants;
 
@@ -49,6 +50,8 @@ const getHealthContributionBreakdown = (
   osnovica: number
 ): ContributionBreakdown => {
   let osnovicaZaDoprinos = Math.min(osnovica, ftc.maxDoprinosi);
+  osnovicaZaDoprinos = Math.max(osnovicaZaDoprinos, ftc.osnovicaPoClanu35bZdso);
+  
   return {
     naTeretPoslodavca: osnovicaZaDoprinos * ftc.zdravstveno.naTeretPoslodavca,
     naTeretZaposlenog: osnovicaZaDoprinos * ftc.zdravstveno.naTeretZaposlenog,

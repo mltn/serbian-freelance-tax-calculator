@@ -15,6 +15,7 @@ export type TaxationConstants = {
     opcija2: TaxationOption
     maxDoprinosi: number
     minDoprinosi: number
+    osnovicaPoClanu35bZdso: number
     pio: ContributionBreakdown
     zdravstveno: ContributionBreakdown
 }
